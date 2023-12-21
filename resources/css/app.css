@@ -1,0 +1,7 @@
+.custom-file-label::after {
+    content: none;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
