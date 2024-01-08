@@ -10,7 +10,7 @@
                         <h5 class="ml-2 font-weight-bold">INSIDEN</h5>
 
                         <button type="button" class="btn btn-primary mb-1" data-toggle="modal"
-                        data-target=".bd-buat-insiden-modal-lg">
+                            data-target=".bd-buat-insiden-modal-lg">
                             + BUAT INSIDEN
                         </button>
                         <x-modal_buat_insiden :proyek="$proyek" />

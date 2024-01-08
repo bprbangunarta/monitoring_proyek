@@ -59,7 +59,7 @@
                                         <x-modal_edit_survei :proyek="$proyek" :survei="$survei" />
                                     </td>
                                     <td>
-                                        <form action="/administrator/proyek/{{ $survei->id }}" method="POST">
+                                        <form action="/survei/{{ $survei->id }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger text-white">

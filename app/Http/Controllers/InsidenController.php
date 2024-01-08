@@ -35,6 +35,7 @@ class InsidenController extends Controller
         $data = $request->validate([
             'proyek_id' => 'required|numeric',
             'judul' => 'required|max:255',
+            'tanggal' => 'required',
             'detail' => 'required',
         ]);
 
@@ -95,6 +96,7 @@ class InsidenController extends Controller
         $data = $request->validate([
             'laporan_id' => 'required|numeric',
             'judul' => 'required|max:255',
+            'tanggal' => 'required',
             'detail' => 'nullable',
         ]);
 
@@ -134,7 +136,7 @@ class InsidenController extends Controller
         toastr()->success('Berhasil Update insiden', 'Sukses');
         return redirect()->back();
     }
-    
+
 
     /**
      * Remove the specified resource from storage.
@@ -150,7 +152,7 @@ class InsidenController extends Controller
         }
 
         // Ambil ID gambar yang sesuai dengan ID insiden
-        $gambar = Image::where('insiden_id', $insiden->id)->first();
+        $gambar = Image::where('id', $insiden->id)->first();
 
         if ($gambar) {
             // Ambil jalur file gambar

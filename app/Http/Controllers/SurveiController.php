@@ -24,6 +24,7 @@ class SurveiController extends Controller
         $data = $request->validate([
             'proyek_id' => 'required|numeric',
             'judul' => 'required|max:255',
+            'tanggal' => 'required',
             'detail' => '',
         ]);
 
@@ -88,6 +89,7 @@ class SurveiController extends Controller
         $data = $request->validate([
             'laporan_id' => 'numeric',
             'judul' => 'max:255',
+            'tanggal' => 'required',
             'detail' => 'nullable',
         ]);
 
@@ -136,7 +138,7 @@ class SurveiController extends Controller
             toastr()->error('survei tidak ditemukan.', 'Gagal');
             return redirect()->back();
         }
-        $gambar = Image::where('survei_id', $survei->id)->first();
+        $gambar = Image::where('id', $survei->id)->first();
 
         if ($gambar) {
             $gambarPath = public_path('storage/' . $gambar->img);

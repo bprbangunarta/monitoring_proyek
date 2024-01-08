@@ -6,7 +6,7 @@ use App\Models\Proyek;
 use App\Models\User;
 use App\Http\Requests\StoreProyekRequest;
 use App\Http\Requests\UpdateProyekRequest;
-
+use App\Models\Insiden;
 
 class ProyekController extends Controller
 {
@@ -177,11 +177,11 @@ class ProyekController extends Controller
 
     public function destroy($id)
     {
-        $proyek = Proyek::find($id);
+        $insiden = Insiden::find($id);
 
-        Proyek::destroy($proyek->id);
+        Insiden::where('id', $insiden->id)->delete();
 
-        toastr()->success('Berhasil Menghapus Proyek', 'Sukses');
+        toastr()->success('Berhasil Menghapus Insiden', 'Sukses');
         return redirect()->back();
     }
 }

@@ -5,14 +5,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Starter</title>
+    <title>Monitoring Proyek</title>
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <link rel="stylesheet" href="/css/app.css" />
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
-    
+
 
     <link rel="stylesheet" href="/dist/css/adminlte.min.css?v=3.2.0">
     <script nonce="412b9e85-8439-44f8-b395-bcaf85221c37">

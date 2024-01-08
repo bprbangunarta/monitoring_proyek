@@ -28,6 +28,14 @@
                             value="{{ old('judul', $insiden->judul) }}" required>
                     </div>
 
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text">TANGGAL :</label>
+                        </div>
+                        <input type="date" class="form-control @error('tanggal') is-invalid @enderror" name="tanggal"
+                            id="tanggal" value="{{ old('tanggal', $insiden->tanggal) }}" required>
+                    </div>
+
                     <div class="card mt-3">
                         <div class="card-header">
                             Tambah Foto :
@@ -58,8 +66,7 @@
                                 @endforeach
                                 <div class="card" style="width: 6rem; height: 6rem;">
                                     <div class="image text-center">
-                                        <img class="new_img{{ $insiden->id }}-view"
-                                            src="/dist/img/tambah_gambar.png"
+                                        <img class="new_img{{ $insiden->id }}-view" src="/dist/img/tambah_gambar.png"
                                             style="width: 100px; height: 100px; object-fit: cover;">
                                     </div>
                                     <div class="input-group absolute"
@@ -68,8 +75,7 @@
                                             <label
                                                 class="btn h-20 w-40 rounded-full border border-slate-200 p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:border-navy-500 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
                                                 <input id="new_img{{ $insiden->id }}"
-                                                    name="new_img{{ $insiden->id }}"
-                                                    type="file"
+                                                    name="new_img{{ $insiden->id }}" type="file"
                                                     class="pointer-events-none absolute inset-0 h-full w-full opacity-0"
                                                     onchange="viewImg('new_img{{ $insiden->id }}')">
                                             </label>
