@@ -102,7 +102,7 @@
                                                         <button type="submit" class="btn btn-secondary "
                                                             data-toggle="tooltip" data-placement="top"
                                                             title="Klik jika status selesai"
-                                                            @unless (Gate::allows('Manajer_Proyek')) disabled @endunless>Proses</button>
+                                                            @unless (Gate::allows('Pengawas')) disabled @endunless>Proses</button>
                                                     </form>
                                                 @else
                                                     <form method="POST"
@@ -113,7 +113,7 @@
                                                             hidden>
                                                         <button type="submit" class="btn btn-success" data-toggle="tooltip"
                                                             data-placement="top" title="Klik jika status belum selesai"
-                                                            @unless (Gate::allows('Manajer_Proyek')) disabled @endunless>Selesai</button>
+                                                            @unless (Gate::allows('Pengawas')) disabled @endunless>Selesai</button>
                                                     </form>
                                                 @endif
                                             </div>
@@ -177,10 +177,10 @@
                                 <th scope="col">INSIDEN</th>
                                 <th scope="col">WAKTU LAPORAN</th>
                                 <th scope="col">DETAIL</th>
-                                @can('Pengawas')
-                                @else
+                                @can('Manajer_Proyek')
                                     <th scope="col">EDIT</th>
                                     <th scope="col">HAPUS</th>
+                                @else
                                 @endcan
                             </tr>
                         </thead>
@@ -364,8 +364,8 @@
                                             </button>
                                         </a>
                                     </td>
-                                    @can('Pengawas')
-                                    @else
+
+                                    @can('Manajer_Proyek')
                                         <td>
                                             <button type="button" class="btn btn-info text-white" data-toggle="modal"
                                                 data-target=".bd-edit-laporan{{ $laporan->id }}-modal-lg">
@@ -389,6 +389,7 @@
                                                 </button>
                                             </form>
                                         </td>
+                                    @else
                                     @endcan
                                 </tr>
                             @endforeach

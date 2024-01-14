@@ -31,6 +31,12 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
+                    <li class="nav-item ">
+                        <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>User Profile</p>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a href="/administrator/create"
                             class="nav-link {{ Request::is('administrator/create') ? 'active' : '' }}">
@@ -40,7 +46,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="/administrator/proyek"
-                            class="nav-link {{ Request::is('administrator/proyek', 'proyek/detail/6/edit') ? 'active' : '' }}">
+                            class="nav-link {{ Request::is('administrator/proyek', 'proyek/detail/*/edit', 'laporan/*', 'insiden/*', 'survei/*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-list"></i>
                             <p>List Proyek</p>
                         </a>
@@ -63,7 +69,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="/pengawas/proyek"
-                            class="nav-link {{ Request::is('pengawas/proyek', 'proyek/detail/6/edit') ? 'active' : '' }}">
+                            class="nav-link {{ Request::is('pengawas/proyek', 'proyek/detail/*/edit', 'rencana/*', 'laporan/*', 'insiden/*', 'survei/*', 'survei/*/edit') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-list"></i>
                             <p>List Proyek</p>
                         </a>

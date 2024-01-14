@@ -210,8 +210,8 @@
                                                         Menu Proyek
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item"
-                                                            href="/rencana/{{ $proyek->id }}">Rencana</a>
+                                                        {{-- <a class="dropdown-item"
+                                                            href="/rencana/{{ $proyek->id }}">Rencana</a> --}}
                                                         <a class="dropdown-item" href="/laporan/{{ $proyek->id }}"
                                                             @can('Pengawas') hidden @endcan>Laporan</a>
                                                         <a class="dropdown-item" href="/insiden/{{ $proyek->id }}"
@@ -250,7 +250,7 @@
                                                         Proyek selesai
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        
+
                                                         @can('Administrator')
                                                             <div class="dropdown-divider"></div>
                                                             <form method="POST" action="/mulai/proyek/{{ $proyek->id }}"
@@ -259,7 +259,8 @@
                                                                 @method('PUT')
                                                                 <input type="text" name="is_str" id="is_str"
                                                                     value="1" hidden>
-                                                                <button type="submit" class="btn btn-secondary">Mulai ulang</button>
+                                                                <button type="submit" class="btn btn-secondary">Mulai
+                                                                    ulang</button>
                                                             </form>
                                                         @endcan
                                                     </div>
@@ -271,7 +272,8 @@
                                                 <form action="/administrator/proyek/{{ $proyek->id }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger text-white">
+                                                    <button type="submit" class="btn btn-danger text-white"
+                                                        @if ($proyek->is_str == 1 || $proyek->is_str == 2) disabled @endif>
                                                         <svg xmlns="http://www.w3.org/2000/svg" height="1em"
                                                             viewBox="0 0 448 512">
                                                             <path
