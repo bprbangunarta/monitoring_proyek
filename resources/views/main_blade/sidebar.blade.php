@@ -45,6 +45,15 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
+                                <a href="/administrator"
+                                    class="nav-link {{ Request::is('/administrator/dasboard') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Dasboard</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
                                 <a href="/administrator/create"
                                     class="nav-link {{ Request::is('administrator/create') ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>

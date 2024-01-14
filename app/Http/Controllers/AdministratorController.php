@@ -18,10 +18,10 @@ class AdministratorController extends Controller
             "link" => "/administrator",
             "subTitle" => null,
             "users" => User::count(),
-            "klien" => User::where('role', 0)->count(),
-            "proyek" => Proyek::where('is_str', 0)->count(),
-            "proyek_aktif" => Proyek::where('is_str', 1)->count(),
-            "proyek_selesai" => Proyek::where('is_str', 2)->count(),
+            "klien" =>User::where('role', 0)->count(),
+            "proyek" =>Proyek::where('is_str', 0)->count(),
+            "proyek_aktif" =>Proyek::where('is_str', 1)->count(),
+            "proyek_selesai" =>Proyek::where('is_str', 2)->count(),
         ]);
     }
 

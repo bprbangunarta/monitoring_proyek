@@ -360,7 +360,7 @@
                                         <x-modal_edit_laporan :proyek="$proyek" :laporan="$laporan" />
                                     </td>
                                     <td>
-                                        <form action="/administrator/proyek/{{ $laporan->id }}" method="POST">
+                                        <form action="/laporan/{{ $laporan->id }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger text-white">

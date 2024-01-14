@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Proyek;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -13,10 +15,13 @@ class UserController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+
         return view('user.profile.index', [
             "title" => "Profile",
             "link" => "/user",
             "subTitle" => null,
+            "proyek" => Proyek::where('klien', $user->name)->get()
         ]);
     }
 
@@ -64,7 +69,6 @@ class UserController extends Controller
             'username' => 'required|alpha_dash|min:3|max:255',
             'email' => 'required|max:124',
             'perusahaan' => 'required|max:124',
-            'profil' => 'image|max:1024',
         ]);
 
         if ($request->file('profil')) {

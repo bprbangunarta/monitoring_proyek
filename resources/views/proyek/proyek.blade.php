@@ -202,7 +202,7 @@
                                                             title="Klik untuk mulai proyek">Mulai Proyek</button>
                                                     </form>
                                                 @endcan
-                                            @else
+                                            @elseif($proyek->is_str === 1)
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-success dropdown-toggle"
                                                         data-toggle="dropdown" aria-haspopup="true"
@@ -212,12 +212,12 @@
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item"
                                                             href="/rencana/{{ $proyek->id }}">Rencana</a>
-                                                        <a class="dropdown-item"
-                                                            href="/laporan/{{ $proyek->id }}" @can('Pengawas') hidden @endcan>Laporan</a>
-                                                        <a class="dropdown-item"
-                                                            href="/insiden/{{ $proyek->id }}" @can('Pengawas') hidden @endcan>Insiden</a>
-                                                        <a class="dropdown-item"
-                                                            href="/survei/{{ $proyek->id }}" @can('Manajer_Proyek') hidden @endcan>Survei</a>
+                                                        <a class="dropdown-item" href="/laporan/{{ $proyek->id }}"
+                                                            @can('Pengawas') hidden @endcan>Laporan</a>
+                                                        <a class="dropdown-item" href="/insiden/{{ $proyek->id }}"
+                                                            @can('Pengawas') hidden @endcan>Insiden</a>
+                                                        <a class="dropdown-item" href="/survei/{{ $proyek->id }}"
+                                                            @can('Manajer_Proyek') hidden @endcan>Survei</a>
                                                         @can('Administrator')
                                                             <div class="dropdown-divider"></div>
                                                             <form method="POST" action="/mulai/proyek/{{ $proyek->id }}"
@@ -228,6 +228,38 @@
                                                                     value="0" hidden>
                                                                 <button type="submit" class="btn btn-secondary">Hentikan
                                                                     proyek</button>
+                                                            </form>
+                                                            <div class="dropdown-divider"></div>
+                                                            <form method="POST" action="/mulai/proyek/{{ $proyek->id }}"
+                                                                class="text-center">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <input type="text" name="is_str" id="is_str"
+                                                                    value="2" hidden>
+                                                                <button type="submit" class="btn btn-primary">Proyek
+                                                                    Selesai</button>
+                                                            </form>
+                                                        @endcan
+                                                    </div>
+                                                </div>
+                                            @else
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-primary dropdown-toggle"
+                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                        Proyek selesai
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        
+                                                        @can('Administrator')
+                                                            <div class="dropdown-divider"></div>
+                                                            <form method="POST" action="/mulai/proyek/{{ $proyek->id }}"
+                                                                class="text-center">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <input type="text" name="is_str" id="is_str"
+                                                                    value="1" hidden>
+                                                                <button type="submit" class="btn btn-secondary">Mulai ulang</button>
                                                             </form>
                                                         @endcan
                                                     </div>
