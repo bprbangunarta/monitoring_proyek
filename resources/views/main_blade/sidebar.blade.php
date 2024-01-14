@@ -21,13 +21,13 @@
                 @can('Administrator')
                     <li class="nav-header">ADMINISTRATOR</li>
                     <li class="nav-item">
-                        <a href="/" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
+                        <a href="/dashboard" class="nav-link {{ Request::is('/', 'dashboard') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
+                        <a href="/user" class="nav-link {{ Request::is('user', 'user/*/edit') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-user"></i>
                             <p>User Profile</p>
                         </a>
@@ -50,14 +50,12 @@
 
                 @can('Pengawas')
                     <li class="nav-header">PENGAWAS</li>
-                    <li class="nav-item">
-                        <a href="/" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
+                    <a href="/dashboard" class="nav-link {{ Request::is('/', 'dashboard') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Dashboard</p>
+                    </a>
                     <li class="nav-item ">
-                        <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
+                        <a href="/user" class="nav-link {{ Request::is('user', 'user/*/edit') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-user"></i>
                             <p>User Profile</p>
                         </a>
@@ -74,14 +72,12 @@
 
                 @can('Manajer_Proyek')
                     <li class="nav-header">MANAGER</li>
-                    <li class="nav-item">
-                        <a href="/" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
+                    <a href="/dashboard" class="nav-link {{ Request::is('/', 'dashboard') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Dashboard</p>
+                    </a>
                     <li class="nav-item ">
-                        <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
+                        <a href="/user" class="nav-link {{ Request::is('user', 'user/*/edit') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-user"></i>
                             <p>User Profile</p>
                         </a>
@@ -95,7 +91,21 @@
                     </li>
                 @endcan
 
-                {{-- <li class="nav-header">PELANGGAN</li> --}}
+
+                @if (Auth::user()->role == 0)
+                    <li class="nav-header">PELANGGAN</li>
+                    <a href="/dashboard" class="nav-link {{ Request::is('/', 'dashboard') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Dashboard</p>
+                    </a>
+                    <li class="nav-item ">
+                        <a href="/user" class="nav-link {{ Request::is('user', 'user/*/edit') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>User Profile</p>
+                        </a>
+                    </li>
+                @endif
+
             </ul>
         </nav>
 

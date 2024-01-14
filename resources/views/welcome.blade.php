@@ -10,8 +10,8 @@
 
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>10</h3>
-                                <p>Total User</p>
+                                <h3>{{ $klien }}</h3>
+                                <p>Total Klien</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
@@ -26,8 +26,8 @@
 
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>10</h3>
-                                <p>Total Klien</p>
+                                <h3>{{ $proyek_n }}</h3>
+                                <p>Proyek Tidak Aktif</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
@@ -42,7 +42,7 @@
 
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>10</h3>
+                                <h3>{{ $proyek_a }}</h3>
                                 <p>Proyek Aktif</p>
                             </div>
                             <div class="icon">
@@ -58,7 +58,7 @@
 
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>10</h3>
+                                <h3>{{ $proyek_d }}</h3>
                                 <p>Proyek Selesai</p>
                             </div>
                             <div class="icon">

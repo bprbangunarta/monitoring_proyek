@@ -10,11 +10,21 @@ use App\Http\Controllers\InsidenController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\RencanaController;
 use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LaporanManagerController;
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+Route::get('/', function () {
+    return redirect('dashboard');
+})->middleware('auth');;
 
-
+Route::get('/superadmin', function () {
+    return view('welcome', [
+        "title" => "Super Admin Template",
+        "template" => "Super Admin Template"
+    ]);
+})->middleware('superadmin');
 
 Route::resource('/auth', AuthController::class);
 Route::post('/auth/login', [AuthController::class, 'login'])->name('login.auth');
@@ -46,46 +56,3 @@ Route::resource('/laporan', LaporanController::class);
 Route::resource('/insiden', InsidenController::class);
 Route::resource('/survei', SurveiController::class);
 Route::resource('/image', ImageController::class);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::get('/', function () {
-    return view('welcome', [
-        "title" => "PROYEK",
-        "link" => "/administrator/proyek/create",
-        "subTitle" => null,
-    ]);
-})->middleware('auth');;
-
-Route::get('/superadmin', function () {
-    return view('welcome', [
-        "title" => "Super Admin Template",
-        "template" => "Super Admin Template"
-    ]);
-})->middleware('superadmin');

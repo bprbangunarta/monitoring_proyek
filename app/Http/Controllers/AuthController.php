@@ -35,7 +35,7 @@ class AuthController extends Controller
 
             toastr()->success('Login successful!');
 
-            return redirect()->intended('/user');
+            return redirect()->intended('/dashboard');
         }
 
         return back()->with('gagal_login', 'Gagal login!');
