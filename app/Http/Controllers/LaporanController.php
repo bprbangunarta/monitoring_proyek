@@ -157,8 +157,13 @@ class LaporanController extends Controller
         return redirect()->back();
     }
 
-    public function destroy(Laporan $laporan)
+    public function destroy($id)
     {
-        //
+        $laporan = Laporan::find($id);
+
+        Laporan::where('id', $laporan->id)->delete();
+
+        toastr()->success('Berhasil Menghapus laporan', 'Sukses');
+        return redirect()->back();
     }
 }

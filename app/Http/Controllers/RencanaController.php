@@ -14,7 +14,6 @@ class RencanaController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Proyek;
 use Illuminate\Http\Request;
 
 class AdministratorController extends Controller
@@ -12,7 +13,16 @@ class AdministratorController extends Controller
      */
     public function index()
     {
-        //
+        return view('administrator.dasboard.dasboard', [
+            "title" => "dasboard",
+            "link" => "/administrator",
+            "subTitle" => null,
+            "users" => User::count(),
+            "klien" => User::where('role', 0)->count(),
+            "proyek" => Proyek::where('is_str', 0)->count(),
+            "proyek_aktif" => Proyek::where('is_str', 1)->count(),
+            "proyek_selesai" => Proyek::where('is_str', 2)->count(),
+        ]);
     }
 
     /**
