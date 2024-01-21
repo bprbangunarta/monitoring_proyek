@@ -177,11 +177,11 @@ class ProyekController extends Controller
 
     public function destroy($id)
     {
-        $insiden = Insiden::find($id);
+        $proyek = Proyek::find($id);
 
-        Insiden::where('id', $insiden->id)->delete();
+        Proyek::where('id', $proyek->id)->delete();
 
-        toastr()->success('Berhasil Menghapus Insiden', 'Sukses');
+        toastr()->success('Berhasil Menghapus Proyek', 'Sukses');
         return redirect()->back();
     }
 }
